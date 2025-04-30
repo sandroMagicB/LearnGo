@@ -13,8 +13,19 @@ func main() {
 
 	// don't edit above this line
 
-	// ?
+  // Calculate the final cost
+  finalCost = bulkMessageCost
+  if isPremiumUser {
+      finalCost = bulkMessageCost * (1 - discountRate)
+  }
 
+  // Check if the user has enough funds
+  if accountBalance >= finalCost {
+      accountBalance -= finalCost // Deduct the final cost from the account balance
+      fmt.Println(purchaseSuccessMessage)
+  } else {
+      fmt.Println(insufficientFundMessage)
+  }
 	// don't edit below this line
 
 	fmt.Println("Account balance:", accountBalance)
