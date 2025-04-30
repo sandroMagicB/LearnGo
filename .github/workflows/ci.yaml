@@ -20,7 +20,7 @@ jobs:
 
       - name: Echo Run Ch1 folder
         run: |
-          for file in ./ch1/*.go; do
+          for file in $(ls ./ch1/*.go | sort -V); do
             echo "Running $file"
             go run "$file"
             echo
