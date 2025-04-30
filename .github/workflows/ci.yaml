@@ -25,3 +25,10 @@ jobs:
             go run "$file"
             echo
           done
+      - name: Echo Run Ch2 folder
+        run: |
+          for file in $(ls ./ch2/*.go | sort -V); do
+            echo "Running $file"
+            go run "$file"
+            echo
+          done
