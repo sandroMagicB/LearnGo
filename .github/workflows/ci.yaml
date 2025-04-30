@@ -18,5 +18,9 @@ jobs:
         with:
           go-version: "1.23.0"
 
-      - name: Echo Go version
-        run: go version
+      - name: Echo Run L1
+        run: |
+          for file in ./ch1/*.go; do
+            echo "Running $file"
+            go run "$file"
+          done
