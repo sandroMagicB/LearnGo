@@ -18,9 +18,10 @@ jobs:
         with:
           go-version: "1.23.0"
 
-      - name: Echo Run L1
+      - name: Echo Run Ch1 folder
         run: |
           for file in ./ch1/*.go; do
             echo "Running $file"
             go run "$file"
+            echo
           done
