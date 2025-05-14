@@ -32,7 +32,7 @@ jobs:
             go run "$file"
             echo
           done
-      - name: Echo Run Ch2 folder
+      - name: Echo Run Ch3 folder
         run: |
           for file in $(ls ./ch3/*.go | sort -V); do
             echo "Running $file"
