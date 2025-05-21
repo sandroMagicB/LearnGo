@@ -18,9 +18,6 @@ jobs:
         with:
           go-version: "1.23.0"
 
-      - name: Set Module Auto
-        run: go env -w GO111MODULE=auto
-
       - name: Echo Run Ch1 folder
         run: |
           for file in $(ls ./ch1/*.go | sort -V); do
@@ -48,7 +45,7 @@ jobs:
             echo "Entering folder $folder"
             for file in $(ls "$folder"*.go | sort -V); do
               echo "Init Go Mod"
-              go mod init
+              go mod init /home/runner/work/LearnGo/LearnGo/$folder
               echo "Running tests"
               go test -v 
               echo
