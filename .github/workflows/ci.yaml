@@ -44,8 +44,10 @@ jobs:
           for folder in $(ls -d ./ch3/*/ | sort -V); do
             echo "Entering folder $folder"
             for file in $(ls "$folder"*.go | sort -V); do
+              echo "Init Go Mod"
+              got mod init
               echo "Running tests"
-              go test $folder -v 
+              go test -v 
               echo
             done
           done
