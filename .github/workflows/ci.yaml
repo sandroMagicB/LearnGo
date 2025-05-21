@@ -39,3 +39,13 @@ jobs:
             go run "$file"
             echo
           done
+      - name: Echo Run Ch3 subfolders
+        run: |
+          for folder in $(ls -d ./ch3/*/ | sort -V); do
+            echo "Entering folder $folder"
+            for file in $(ls "$folder"*.go | sort -V); do
+              echo "Running $file"
+              go run "$file"
+              echo
+            done
+          done
