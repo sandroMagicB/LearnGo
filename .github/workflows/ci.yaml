@@ -45,7 +45,7 @@ jobs:
             echo "Entering folder $folder"
             for file in $(ls "$folder"*.go | sort -V); do
               echo "Init Go Mod"
-              got mod init
+              go mod init
               echo "Running tests"
               go test -v 
               echo
