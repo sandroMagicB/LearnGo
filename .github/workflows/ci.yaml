@@ -44,8 +44,8 @@ jobs:
           for folder in $(ls -d ./ch3/*/ | sort -V); do
             echo "Entering folder $folder"
             for file in $(ls "$folder"*.go | sort -V); do
-              echo "Running $file"
-              go run "$file"
+              echo "Running tests"
+              go test 
               echo
             done
           done
