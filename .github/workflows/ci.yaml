@@ -43,11 +43,21 @@ jobs:
         run: |
           for folder in $(ls -d ./ch3/*/ | sort -V); do
             echo "Entering folder $folder"
-            for file in $(ls "$folder"*.go | sort -V); do
-              echo "Init Go Mod"
-              go mod init /home/runner/work/LearnGo/LearnGo/ch3/L2
-              echo "Running tests"
-              go test -v 
-              echo
+            
+            # Check if go.mod exists in the folder before initializing
+            if [ ! -f "$folder/go.mod" ]; then
+              echo "Init Go Mod in $folder"
+              cd "$folder" && go mod init "$(basename "$folder")"
+              cd -  # Go back to the previous directory
+            fi
+            
+            # Loop through the go files inside the folder
+            for file in $(find "$folder" -name "*.go" | sort -V); do
+              echo "Running tests in $file"
+              # Run tests for the specific directory
+              cd "$folder" && go test -v ./...
+              cd -  # Go back to the previous directory
             done
+            echo
           done
+
