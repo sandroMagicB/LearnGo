@@ -1,2 +1,2 @@
 # LearnGo
-Repo to study go
+Repo to study go and remove the need of local run
